@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>footerText</key>
+            <string>Just for clarification - when the switch is on it meeans the app will stop using VoIP. 
+
+
+Keep whatever app you want to use the microphone with off. i.e Want to use the microphone with Skype? Keep that swtich off.</string>
+        </dict>
+		<dict>
+            <key>cell</key>             <string>PSSwitchCell</string>
+            <key>default</key>          <true/>
+            <key>defaults</key>         <string>com.greeny.fbvoipremover</string>
+            <key>key</key>              <string>isEnabledFacebook</string>
+            <key>label</key>            <string>Facebook</string>
+            <key>PostNotification</key> <string>com.greeny.fbvoipremover/settingschanged</string>
+        </dict>
+        <dict>
+            <key>cell</key>             <string>PSSwitchCell</string>
+            <key>default</key>          <true/>
+            <key>defaults</key>         <string>com.greeny.fbvoipremover</string>
+            <key>key</key>              <string>isEnabledMessenger</string>
+            <key>label</key>            <string>Messenger</string>
+            <key>PostNotification</key> <string>com.greeny.fbvoipremover/settingschanged</string>
+        </dict>
+        <dict>
+            <key>cell</key>             <string>PSSwitchCell</string>
+            <key>default</key>          <false/>
+            <key>defaults</key>         <string>com.greeny.fbvoipremover</string>
+            <key>key</key>              <string>isEnabledSkype</string>
+            <key>label</key>            <string>Skype</string>
+            <key>PostNotification</key> <string>com.greeny.fbvoipremover/settingschanged</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>footerText</key>
+            <string>Please respring when changing settings.</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSButtonCell</string>
+            <key>icon</key>
+            <string>facebook.png</string>
+            <key>label</key>
+            <string>Respring</string>
+            <key>action</key>
+            <string>respring</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>footerText</key>
+            <string>Feel free to follow me on Twitter!</string>
+        </dict>
+         <dict>
+            <key>cell</key>
+            <string>PSButtonCell</string>
+            <key>icon</key>
+            <string>twitter.png</string>
+            <key>label</key>
+            <string>Twitter</string>
+            <key>action</key>
+            <string>twitterController</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>footerText</key>
+            <string>If you appreciate my work, please use this button to donate to me.</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSButtonCell</string>
+            <key>icon</key>
+            <string>paypal.png</string>
+            <key>label</key>
+            <string>Donate</string>
+            <key>action</key>
+            <string>donate</string>
+        </dict>
+	</array>
+	<key>title</key>
+	<string>VoIPRemover</string>
+</dict>
+</plist>
+

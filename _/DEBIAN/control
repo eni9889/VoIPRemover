@@ -1,0 +1,11 @@
+Package: com.greeny.voipremover
+Name: VoIPRemover
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Description: Stop apps from abusing VoIP!
+Maintainer: GreenyDev
+Author: GreenyDev
+Depiction: http://greenydev.github.io/repo/voipremover/index.html
+Section: Tweaks
+Version: 0.0.1-23
+Installed-Size: 160

@@ -1,0 +1,10 @@
+{
+    entry = {
+	bundle = VoIPRemover;
+	cell = PSLinkCell;
+	detail = VoIPRemoverListController;
+	icon = VoIPRemover.png;
+	isController = 1;
+	label = VoIPRemover;
+    };
+}
