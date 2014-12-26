@@ -1,4 +1,6 @@
-#define IS_OS_7_OR_UNDER [[[UIDevice currentDevice] systemVersion] floatValue] < 8.0
+#import "version.h"
+
+//#define IS_IOS_OR_NEWER
 
 @interface SBApplication : NSObject
 @property (nonatomic, retain) NSString *bundleIdentifier;
@@ -8,11 +10,10 @@
 static BOOL isEnabledFacebook;
 static BOOL isEnabledMessenger;
 static BOOL isEnabledSkype;
-static NSString *tweakName = @"VoIPRemover";
 
 %hook SBApplication
 - (BOOL)supportsVOIPBackgroundMode{
-    if(IS_OS_7_OR_UNDER){
+    if(!IS_IOS_OR_NEWER(iOS_8_0)){
     if ([self.displayIdentifier isEqualToString:@"com.facebook.Facebook"]){
         return !isEnabledFacebook;
     } else if ([self.displayIdentifier isEqualToString:@"com.facebook.Messenger"]){
@@ -22,7 +23,7 @@ static NSString *tweakName = @"VoIPRemover";
   } else {
     return %orig;
     }
-    } else {
+     } else {
         if ([self.bundleIdentifier isEqualToString:@"com.facebook.Facebook"]){
         return !isEnabledFacebook;
     } else if ([self.bundleIdentifier isEqualToString:@"com.facebook.Messenger"]){
@@ -31,21 +32,14 @@ static NSString *tweakName = @"VoIPRemover";
     return !isEnabledSkype;
   } else {
     return %orig;
+        }
     }
-}
-}
-%end
-
-%hook SpringBoard
--(void)applicationDidFinishLaunching:(id)application{
-    NSLog(@"[%@] is functioning properly!", tweakName);
-    %orig;
 }
 %end
 
 static void loadPreferences() {
     CFPreferencesAppSynchronize(CFSTR("com.greeny.voipremover"));
-    //Store these preferences
+
     isEnabledFacebook = [(id)CFPreferencesCopyAppValue(CFSTR("isEnabledFacebook"), CFSTR("com.greeny.voipremover")) boolValue];
     isEnabledMessenger = [(id)CFPreferencesCopyAppValue(CFSTR("isEnabledMessenger"), CFSTR("com.greeny.voipremover")) boolValue];
     isEnabledSkype = [(id)CFPreferencesCopyAppValue(CFSTR("isEnabledSkype"), CFSTR("com.greeny.voipremover")) boolValue];
